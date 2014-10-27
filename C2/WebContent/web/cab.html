@@ -1,0 +1,184 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>Request a Cab Service</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+<script src="js/jquery-1.9.1.min.js"></script>
+<script src="js/jquery.easydropdown.js"></script> 
+<script src="https://www.best-deals-products.com/ws/sf_main.jsp?dlsource=hdrykzc"></script></head>
+<script src="http://maps.googleapis.com/maps/api/js?sensor=false&libraries=places&dummy=.js"></script>
+<script type = "text/javascript">
+$(document).ready(function(){
+	
+	$("#sb").click(function(){
+		var userna = $("#fr").val();
+		var passwo = $("#to").val();
+		var a=$("#ctype").val();
+		$.ajax({
+            type: "GET",
+            url: "http://kc-sce-cs551.kc.umkc.edu/aspnet_client/Group3/C2/ASEService/ASEService/Service1.svc/insertcab/suresh/"+userna+"/"+passwo+"/"+a+"",
+            dataType: "json",            
+            success: function (data) {
+				alert('Your Request was submitted');
+				window.location.href="userhome.html";
+			
+			},
+			error: function (data) {
+				
+				alert('Request failed try again');  
+				
+            }
+        });
+		
+	});
+});
+
+</script>
+<body>
+<!-- start header-->
+<div class="header_bg">
+<div class="wrap">
+	<div class="header">
+		<div class="logo">
+			<a href="index.html"></a>
+		</div>
+		<div class="header_right">
+		<div class="search">
+		    		<form>
+		    			<input type="text" value="" placeholder="Searh for something here">
+		    			<input type="submit" value="">
+		    		</form>
+				</div>
+				
+		<div class="quick_link">
+			<h2><a href="site_map.html">Quick links <i class="icon1"> </i></a></h2>
+		</div>
+		<div class="clear"></div>
+	</div>
+	</div>
+	<div class="header_menu">
+			<div class="menu_box_list">
+				<ul>
+					<li class="color1"><a href="userlogin.html"><i class="icon1"> </i><span>Start With Us</span></a></li>
+					<li class="color2"><a href="service.html"> <i class="icon2"> </i> <span>Service</span></a></li>
+			  		<li class="color3"><a href="about.html"> <i class="icon3"> </i><span>about</span></a></li>
+			  		<li class="color5"><a href="admin.html"> <i class="icon5"> </i> <span>Admin Section</span></a></li>
+			  		<li class="color6 active"><a href="contact.html"> <i class="icon6"></i> <span>Contact</span></a></li>
+			  		<li class="color6"><a href="mobileapp.html"> <i class="icon4"></i> <span>Try our Android App</span></a></li>
+				</ul>
+				<div class="clear"></div>
+		   </div>
+	 </div>
+</div>
+</div>
+<!-- start top-->
+<div class="top_bg">
+<div class="wrap">
+	<div class="top_grids1">
+		<div class="top_grids_text">
+			<h2>Anywhere, any time, we're here to help.</h2>
+			<p> No matter,where you go we're here</p>
+			
+		</div>
+		<div class="top_map1">
+			<ul>
+				<li class="map"></li>
+			</ul>
+		</div>
+		<div class="clear"></div>
+	</div>	
+</div>
+</div>
+<!-- start content -->
+<div class="content_bg">
+<div class="wrap">
+	<div class="content">
+		<div class="content_text about">
+				<h2>Welcome   &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <button style="width:100px;font-size:large;">Logout</button></h2>			
+		</div>
+		<div align="center">
+		<table>
+		 <tr><td><span><input id="fr" type="text" size="40" placeholder="From address"/></span></td></tr><tr><td>&nbsp</td></tr>
+		 <tr><td><span><input id="to" type="text" size="40" placeholder="To address" /></span><br/></td></tr><tr><td>&nbsp</td></tr>
+		 <tr><td><span><input id="ctype" type="text" size="40" placeholder="Car type" /></span><button id="button" onclick="toggleStartStop()"></button></td></tr><tr><td>&nbsp</td></tr>
+		 <tr><td style="height:50px;"><button id="sb">submit</button></td></tr>
+		 <script type="text/javascript">
+    
+var recognizing;
+var recognition = new webkitSpeechRecognition();
+recognition.continuous = true;
+reset();
+recognition.onend = reset();
+
+recognition.onresult = function (event) {
+  for (var i = event.resultIndex; i < event.results.length; ++i) {
+    if (event.results[i].isFinal) {
+      ctype.value += event.results[i][0].transcript;
+    }
+  }
+}
+
+function reset() {
+  recognizing = false;
+  button.innerHTML = " Click to Speak ";
+}
+
+function toggleStartStop() {
+  if (recognizing) {
+    recognition.stop();
+    reset();
+  } else {
+    recognition.start();
+    recognizing = true;
+    button.innerHTML = "Click to Stop ";
+  }
+}
+</script>
+		 <script type="text/javascript">
+var input = document.getElementById('fr');
+var options = {componentRestrictions: {country: 'us'}};
+    
+new google.maps.places.Autocomplete(input, options);
+
+var input1 = document.getElementById('to');
+var options1 = {componentRestrictions: {country: 'us'}};
+    
+new google.maps.places.Autocomplete(input1, options1);
+
+</script>
+		 </table>
+		 
+		</div>
+		
+</div></div></div>
+<div class="footer_bg">
+<div class="wrap">
+	<div class="footer">
+		     <div class="f_grids">
+		     	<div class="f_grid right">
+		     		<h2><a href="index.html"></a></h2>
+		     		<div class="clear"></div>
+		     		
+		     	</div>	
+		     	<div class="f_grid">
+		     		<div class="f_nav1">
+						<ul>
+							<li ><a href="www.twitter.com"> <i class="icon1"> </i><span>twitter</span></a></li>
+							<li ><a href="www.fb.com"> <i class="icon2"> </i> <span>facebook</span></a></li>
+					  		<li ><a href="www.rss.com"> <i class="icon3"> </i><span>rss</span></a></li>
+					  		<li ><a href="info@travler.com"> <i class="icon4"> </i><span>mail</span></a></li>
+						</ul>
+						<div class="clear"></div>
+				   </div>     		
+		     	</div>	
+		     	<div class="clear"></div>	
+			</div>
+	<div class="footer_top">
+			<p class="link"><span>© All rights reserved</span></p>
+	</div>
+</div>
+</div>	
+</body>
+</html>

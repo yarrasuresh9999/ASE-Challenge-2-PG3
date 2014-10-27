@@ -1,0 +1,25 @@
+<link href="css/cal.css" rel="stylesheet" type="text/css">
+<script src="http://code.jquery.com/jquery-1.8.3.js"></script>
+<script src="js/jquery.easydropdown.js"></script>
+<script src="http://momentjs.com/downloads/moment.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.1.1/fullcalendar.min.js"></script>
+<script src="js/gcal.js"></script>
+<script type="text/javascript" src="http://www.google.com/jsapi"></script>
+<script type="text/javascript">
+$(document).ready(function () {
+    $('#calendar').fullCalendar({
+        events: 'https://www.google.com/calendar/embed?src=yarrasuresh9999%40gmail.com&ctz=America/Chicago ',
+        header: {
+            left: 'title',
+            center: 'month, basicWeek, basicDay',
+            right: 'today, prev, next'
+        }
+    });
+});
+</script>
+<h1>Full Calendar</h1>
+
+
+<h2 class="info">You can pull in Google calendars and add your own styles and colors. Get it <a href="http://arshaw.com/fullcalendar/">here</a>.</h2>
+
+<div id="calendar"></div>
